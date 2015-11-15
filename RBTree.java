@@ -280,7 +280,21 @@ public class RBTree<K, V>
 					w = x.parent.rightChild;    // change w to a new w
 				}
 				
-				
+				// w.color == BLACK now
+				if (w.leftChild.color == BLACK && w.rightChild.color == BLACK)
+				{
+					w.color = RED;
+					x = x.parent;    // the lacking black flow up 
+				}
+				else
+				{
+					if (w.rightChild.color == BLACK)    // w.leftChild.color == RED
+					{
+						
+					}
+					
+					
+				}
 				
 			}
 			else
@@ -311,4 +325,10 @@ public class RBTree<K, V>
 		}
 	}
 	/**************** tree node ***********************/
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 }
