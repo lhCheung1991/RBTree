@@ -27,17 +27,27 @@ public class RBTree<K, V>
 	{
 		Node<K, V> newSubRoot = subTree.rightChild;
 		
-		newSubRoot.leftChild.parent = subTree;
 		subTree.rightChild = newSubRoot.leftChild;
+		if (newSubRoot.leftChild != nullNode)
+		{
+			newSubRoot.leftChild.parent = subTree;
+		}
 		
 		newSubRoot.parent = subTree.parent;
-		if (subTree.parent.leftChild == subTree)
+		if (subTree.parent == nullNode)
 		{
-			subTree.parent.leftChild = newSubRoot;
+			root = newSubRoot;
 		}
 		else
 		{
-			subTree.parent.rightChild = newSubRoot;
+			if (subTree.parent.leftChild == subTree)
+			{
+				subTree.parent.leftChild = newSubRoot;
+			}
+			else
+			{
+				subTree.parent.rightChild = newSubRoot;
+			}
 		}
 		
 		subTree.parent = newSubRoot;
@@ -50,21 +60,7 @@ public class RBTree<K, V>
 	{
 		Node<K, V> newSubRoot = subTree.leftChild;
 		
-		newSubRoot.rightChild.parent = subTree;
-		subTree.leftChild = newSubRoot.rightChild;
 		
-		newSubRoot.parent = subTree.parent;
-		if (subTree.parent.leftChild == subTree)
-		{
-			subTree.parent.leftChild = newSubRoot;
-		}
-		else
-		{
-			subTree.parent.rightChild = newSubRoot;
-		}
-		
-		subTree.parent = newSubRoot;
-		newSubRoot.rightChild = subTree;
 		
 		return newSubRoot;
 	}
@@ -290,10 +286,18 @@ public class RBTree<K, V>
 				{
 					if (w.rightChild.color == BLACK)    // w.leftChild.color == RED
 					{
-						
+						w.color = RED;
+						w.leftChild.color = BLACK;
+						singleRightRotate(w);
+						w = x.parent.rightChild;
 					}
 					
+					w.color = x.parent.color;
+					x.parent.color = BLACK;
+					w.rightChild.color = BLACK;
+					singleLeftRotate(x.parent);
 					
+					x = root;    // break while condition
 				}
 				
 			}
