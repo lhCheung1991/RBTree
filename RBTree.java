@@ -60,7 +60,31 @@ public class RBTree<K, V>
 	{
 		Node<K, V> newSubRoot = subTree.leftChild;
 		
+		subTree.leftChild = newSubRoot.rightChild;
+		if (newSubRoot.rightChild != nullNode)
+		{
+			newSubRoot.rightChild.parent = subTree;
+		}
 		
+		newSubRoot.parent = subTree.parent;
+		if (subTree.parent == nullNode)
+		{
+			root = newSubRoot;
+		}
+		else
+		{
+			if (subTree.parent.leftChild == subTree)
+			{
+				subTree.parent.leftChild = newSubRoot;
+			}
+			else
+			{
+				subTree.parent.rightChild = newSubRoot;
+			}
+		}
+		
+		subTree.parent = newSubRoot;
+		newSubRoot.rightChild = subTree;
 		
 		return newSubRoot;
 	}
@@ -264,7 +288,7 @@ public class RBTree<K, V>
 	{
 		while (x != root && x.color == BLACK)    // x point to the double-black-none-root node
 		{
-			if (x.parent.leftChild == x)
+			if (x.parent.leftChild == x)    // x is the left Child of its parent
 			{
 				Node<K, V> w = x.parent.rightChild;
 				
@@ -299,13 +323,44 @@ public class RBTree<K, V>
 					
 					x = root;    // break while condition
 				}
-				
 			}
-			else
+			else    // x is the right Child of its parent
 			{
 				Node<K, V> w = x.parent.leftChild;
+				
+				if (w.color == RED)
+				{
+					w.color = BLACK;
+					x.parent.color = RED;
+					singleRightRotate(x.parent);
+					w = x.parent.leftChild;
+				}
+				
+				if (w.leftChild.color == BLACK && w.rightChild.color == BLACK)
+				{
+					w.color = RED;
+					x = x.parent;
+				}
+				else
+				{
+					if (w.leftChild.color == BLACK)    // w.rightChild.color == RED
+					{
+						w.color = RED;
+						w.rightChild.color = BLACK;
+						singleLeftRotate(w);
+						w = x.parent.leftChild;
+					}
+					
+					w.color = x.parent.color;
+					x.parent.color = BLACK;
+					w.leftChild.color = BLACK;
+					singleRightRotate(x.parent);
+					
+					x = root;
+				}
 			}
 		}
+		
 		x.color = BLACK;    // if x point to root, it okay to drop the additional black
 							// if x.color == RED, then change the red to black to recover the lacking black
 	}
