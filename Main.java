@@ -9,12 +9,58 @@ public class Main
 	{
 		// TODO Auto-generated method stub
 		RBTree<Integer, Integer> tree = new RBTree<Integer, Integer>(new Comp());
-		tree.insert(1, 1);
-		tree.insert(2, 2);
-		tree.insert(3, 3);
-		tree.insert(4, 4);
+		for (int i = 0; i < 5; i++)
+		{
+			tree.insert(i, i);
+		}
+		
+		System.out.println(tree);
+		System.out.println();
+		
+		for (int i = 10; i > 5; i--)
+		{
+			tree.insert(i, i);
+		}
+		
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(3);
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(10);
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(4);
+		System.out.println(tree);
+		System.out.println();
 		
 		tree.delete(1);
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(2);
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(0);
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(8);
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(6);
+		System.out.println(tree);
+		System.out.println();
+		
+		tree.delete(7);
+		tree.delete(9);
+		System.out.println(tree);
+		System.out.println();
 	}
 
 }

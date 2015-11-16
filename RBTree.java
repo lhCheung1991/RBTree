@@ -367,8 +367,6 @@ public class RBTree<K, V>
 	
 	/**************delete operation end*********************/
 	
-	
-	
 	/**************** tree node ***********************/
 	private class Node<K, V>
 	{
@@ -385,9 +383,21 @@ public class RBTree<K, V>
 	}
 	/**************** tree node ***********************/
 
+	private void printTreePreOrder(Node<K, V> subTree)
+	{
+		if (subTree != nullNode)
+		{
+			String color = subTree.color == BLACK ? "BLACK" : "RED";
+			System.out.println(subTree.k + " " + subTree.v + " " + color);
+			printTreePreOrder(subTree.leftChild);
+			printTreePreOrder(subTree.rightChild);
+		}
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		printTreePreOrder(root);
+		return "";
 	}
 }
