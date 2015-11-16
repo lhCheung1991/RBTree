@@ -367,6 +367,37 @@ public class RBTree<K, V>
 	
 	/**************delete operation end*********************/
 	
+	/**************get operation begin*********************/
+	public V get(K k)
+	{
+		
+		Node <K, V> curNode = root;
+		while (curNode != nullNode)
+		{
+			if (comp.compare(k, curNode.k) < 0)
+			{
+				curNode = curNode.leftChild;
+			}
+			else if (comp.compare(k, curNode.k) > 0)
+			{
+				curNode = curNode.rightChild;
+			}
+			else 
+			{
+				break;
+			}
+		}
+		
+		if (curNode == nullNode)
+		{
+			System.err.println("Key doesn't exist.");
+			return null;
+		}
+		
+		return curNode.v;
+	}
+	/**************get operation end*********************/
+	
 	/**************** tree node ***********************/
 	private class Node<K, V>
 	{

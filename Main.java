@@ -9,58 +9,71 @@ public class Main
 	{
 		// TODO Auto-generated method stub
 		RBTree<Integer, Integer> tree = new RBTree<Integer, Integer>(new Comp());
-		for (int i = 0; i < 5; i++)
+//		for (int i = 0; i < 5; i++)
+//		{
+//			tree.insert(i, i);
+//		}
+//		
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		for (int i = 10; i > 5; i--)
+//		{
+//			tree.insert(i, i);
+//		}
+//		
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(3);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(10);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(4);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(1);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(2);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(0);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(8);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(6);
+//		System.out.println(tree);
+//		System.out.println();
+//		
+//		tree.delete(7);
+//		tree.delete(9);
+//		System.out.println(tree);
+//		System.out.println();
+		
+		long begin = System.currentTimeMillis();
+		
+		for (int i = 0; i < 1000000; i++)
 		{
 			tree.insert(i, i);
 		}
 		
-		System.out.println(tree);
-		System.out.println();
+		long end = System.currentTimeMillis();
 		
-		for (int i = 10; i > 5; i--)
-		{
-			tree.insert(i, i);
-		}
+		System.out.println((end - begin) / 1000.0 + " s");
 		
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(3);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(10);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(4);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(1);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(2);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(0);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(8);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(6);
-		System.out.println(tree);
-		System.out.println();
-		
-		tree.delete(7);
-		tree.delete(9);
-		System.out.println(tree);
-		System.out.println();
+		System.out.println(tree.get(8989));
 	}
 
 }
