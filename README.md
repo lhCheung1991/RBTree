@@ -16,4 +16,8 @@ The above code shows how to initialize a RBTree object, you should define a clas
 
 The above code shows the insert function of RBTree.java. You may notice that I have create a RBTree object and specific the types of key and value as Interger, so insert function should be called like tree.insert(Integer, Integer)
 
+![Alt text](https://github.com/lhCheung1991/RBTree/blob/master/delete.png?raw=true "Optional Title")
+
+The above code shows the delete function of RBTree.java. Just pass a legal key to it. The System.out.println() will traverse the tree nodes in in-order, so you can observse the states of the tree. You can rewrite the toString() function for your own purpose.
+
 
