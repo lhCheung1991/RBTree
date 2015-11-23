@@ -9,6 +9,7 @@ public class Main
 	{
 		// TODO Auto-generated method stub
 		RBTree<Integer, Integer> tree = new RBTree<Integer, Integer>(new Comp());
+
 		for (int i = 0; i < 5; i++)
 		{
 			tree.insert(i, i);
