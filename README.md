@@ -5,9 +5,11 @@ Red Black Tree is such a marvelous data structure. It is mostly the most popular
 # Code Example
 ![Alt text](https://github.com/lhCheung1991/RBTree/blob/master/constructor.png?raw=true "Optional Title")
 
-The above picture shows the constructor of class RBTree in RBTree.java, you may notice that it requests a Comparator. This Comparator is used to specific the order of keys of Nodes in a BST.
+The above code shows the constructor of class RBTree in RBTree.java, you may notice that it requests a Comparator. This Comparator is used to specific the order of keys of Nodes in a BST.
 
 ![Alt text](https://github.com/lhCheung1991/RBTree/blob/master/comp.png?raw=true "Optional Title")
 ![Alt text](https://github.com/lhCheung1991/RBTree/blob/master/init.png?raw=true "Optional Title")
+
+The above code shows how to initialize a RBTree object, you should define a class, like Comp, which implements the interface Comparator,  and then pass an Object into the constructor of RBTree.
 
 
