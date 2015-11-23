@@ -1,4 +1,4 @@
-# An Red Black Tree implemented in Java
+# A Red Black Tree implemented in Java
 a red-black tree used as key-value set
 
 Description : a red-black tree used as key-value set
