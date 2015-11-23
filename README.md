@@ -20,4 +20,6 @@ The above code shows the insert function of RBTree.java. You may notice that I h
 
 The above code shows the delete function of RBTree.java. Just pass a legal key to it. The System.out.println() will traverse the tree nodes in in-order, so you can observse the states of the tree. You can rewrite the toString() function for your own purpose.
 
+# Motivation
 
+I am interested in the working mechanism of Red Black Tree, but I found that there isn't a code writtern carefully with full comments. So I worte these code. I did full theoratical proof and pratical test. I commented it in some core operation. It is quite good a study material and I hope it is helpful for somebody.
