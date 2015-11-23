@@ -8,4 +8,6 @@ Red Black Tree is such a marvelous data structure. It is mostly the most popular
 The above picture shows the constructor of class RBTree in RBTree.java, you may notice that it requests a Comparator. This Comparator is used to specific the order of keys of Nodes in a BST.
 
 ![Alt text](https://github.com/lhCheung1991/RBTree/blob/master/comp.png?raw=true "Optional Title")
+![Alt text](https://github.com/lhCheung1991/RBTree/blob/master/init.png?raw=true "Optional Title")
+
 
